@@ -1,0 +1,30 @@
+export const el = {
+  startOverlay: document.getElementById('startOverlay'),
+  startBtn: document.getElementById('startBtn'),
+  stationButtons: document.getElementById('stationButtons'),
+  dayLabel: document.getElementById('dayLabel'),
+  stationName: document.getElementById('stationName'),
+  cashValue: document.getElementById('cashValue'),
+  healthValue: document.getElementById('healthValue'),
+  bagValue: document.getElementById('bagValue'),
+
+  heatValue: document.getElementById('heatValue'),
+  timerBar: document.getElementById('timerBar'),
+  timerText: document.getElementById('timerText'),
+  marketTitle: document.getElementById('marketTitle'),
+  marketGrid: document.getElementById('marketGrid'),
+  muteBtn: document.getElementById('muteBtn'),
+  eventOverlay: document.getElementById('eventOverlay'),
+  eventTitle: document.getElementById('eventTitle'),
+  eventBody: document.getElementById('eventBody'),
+  eventActions: document.getElementById('eventActions'),
+  chooseOverlay: document.getElementById('chooseOverlay'),
+  stationChoices: document.getElementById('stationChoices'),
+  endOverlay: document.getElementById('endOverlay'),
+  endSummary: document.getElementById('endSummary'),
+  restartBtn: document.getElementById('restartBtn'),
+  fadeOverlay: document.getElementById('fadeOverlay'),
+  consumablesRow: document.getElementById('consumablesRow'),
+};
+
+

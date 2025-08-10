@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Gong Line Emoji Trader</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="title">Gong Line Emoji Trader</div>
+        <div class="subtle">Trade emoji goods between stations before the gong!</div>
+        <div style="height:8px"></div>
+        <div id="dayLabel" class="subtle" style="font-weight:800">Day 1 / 30</div>
+        <div class="timer-wide">
+          <div class="timer-wrap">
+            <div id="timerBar" class="timer-bar"></div>
+          </div>
+          <div class="timer-text" id="timerText">15s</div>
+        </div>
+        <div style="height:8px"></div>
+        <div class="stats">
+          <div class="stat"><div class="label">Station</div><div id="stationName" class="value">Wollongong</div></div>
+          <div class="stat"><div class="label">Cash</div><div id="cashValue" class="value">$0</div></div>
+          <div class="stat"><div class="label">Health</div><div id="healthValue" class="value">♥ 100</div></div>
+          <div class="stat"><div class="label">Bag</div><div id="bagValue" class="value">0 / 50</div></div>
+  
+          <div class="stat"><div class="label">Heat</div><div id="heatValue" class="value">0</div></div>
+          <button id="panicBtn" style="margin-left:6px;font-size:11px;padding:2px 6px;border-radius:6px;background:#ff2d55;color:#fff;border:none;vertical-align:middle;">click if bug</button>
+        </div>
+        <div style="height:10px"></div>
+        <div class="stations" id="stationButtons"></div>
+        <div style="height:10px"></div>
+        <div id="consumablesRow"></div>
+      </div>
+
+      <div class="card">
+        <div class="market-title">
+          <div class="title" id="marketTitle">Market — Wollongong</div>
+          <button id="muteBtn" class="mute-toggle" aria-pressed="false">🔊 Sound</button>
+        </div>
+        <div class="market-grid" id="marketGrid"></div>
+      </div>
+    </div>
+
+    <!-- Overlays -->
+    <div class="overlay" id="startOverlay">
+      <div class="modal">
+        <h2>Start Journey</h2>
+        <p>Trade fast across 4 stations. Each day is only 15 seconds — buy low, sell high.</p>
+        <div class="actions single">
+          <button class="btn" id="startBtn">Start</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay event" id="eventOverlay">
+      <div class="modal">
+        <h2 id="eventTitle">Event</h2>
+        <p id="eventBody">...</p>
+        <div id="eventActions" class="actions"></div>
+      </div>
+    </div>
+
+    <div class="overlay" id="chooseOverlay">
+      <div class="modal">
+        <h2>Choose Next Station</h2>
+        <p>Day over. Where to next?</p>
+        <div id="stationChoices" class="station-choices"></div>
+      </div>
+    </div>
+
+    <div class="overlay" id="endOverlay">
+      <div class="modal">
+        <h2>Trip Complete</h2>
+        <p id="endSummary">You finished with $0.</p>
+        <div class="actions single">
+          <button class="btn" id="restartBtn">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+  </html>
+
+
