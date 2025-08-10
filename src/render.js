@@ -5,7 +5,7 @@ import { formatMoney, hasOpenOverlay, totalInvWeight } from './utils.js';
 import { generateAllPrices } from './prices.js';
 import { renderTimer } from './timer.js';
 import { buy, sell, sellAll } from './trading.js';
-import { advanceDayTo } from './lifecycle.js';
+import { bus } from './bus.js';
 
 export function renderStations(){
   el.stationButtons.innerHTML = '';
@@ -16,7 +16,8 @@ export function renderStations(){
     b.onclick = ()=>{
       if (hasOpenOverlay()) return;
       if (state.day > MAX_DAYS) return;
-      advanceDayTo(s);
+      // Dispatch event instead of direct import to avoid circular dependency
+      bus.dispatchEvent(new CustomEvent('stationSelected', { detail: s }));
     };
     el.stationButtons.appendChild(b);
   }

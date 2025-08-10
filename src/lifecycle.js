@@ -1,7 +1,7 @@
 import { STATIONS, MAX_DAYS, LS_KEY } from './constants.js';
 import { state, resetState } from './state.js';
 import { el } from './dom.js';
-import { renderAll } from './render.js';
+import { renderAll, generateAllPrices } from './render.js';
 import { determineEvent, showEventPopup, hideEventPopup } from './events.js';
 import { startTimer, stopTimer } from './timer.js';
 import { AudioKit } from './audio.js';
@@ -26,7 +26,7 @@ export function startDay(){
   try { el.endOverlay.classList.remove('show'); } catch {}
 
   // Defensive: always generate prices first
-  import('./render.js').then(m => m.generateAllPrices());
+  generateAllPrices();
 
   // Set state
   state.canTrade = true;
@@ -154,6 +154,11 @@ export function init(){
     AudioKit.fadeOutMusic(0.5);
     AudioKit.chord([660, 880, 1320], 0.4, 'sine', 0.05);
     showChooseOverlay();
+  });
+
+  // Listen for station selection events to avoid circular imports
+  bus.addEventListener('stationSelected', (e) => {
+    advanceDayTo(e.detail);
   });
 
   window.addEventListener('gameover', ()=>{
